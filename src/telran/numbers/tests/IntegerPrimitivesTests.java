@@ -35,7 +35,7 @@ class IntegerPrimitivesTests {
 	
 	@Test
 	void getLengthChar() {
-		assertEquals(1, IntegerPrimitives.getLengthChar());
+		assertEquals(2, IntegerPrimitives.getLengthChar());
 	}
 	
 	@Test
@@ -66,7 +66,7 @@ class IntegerPrimitivesTests {
 
 	@Test
 	void getLengthInt() {
-		assertEquals(8, IntegerPrimitives.getLengthInt());
+		assertEquals(4, IntegerPrimitives.getLengthInt());
 	}
 	
 	@Test

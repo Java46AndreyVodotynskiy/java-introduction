@@ -1,20 +1,20 @@
 package telran.numbers;
 
 public class IntegerPrimitives {
-
 	public static byte getMaxByte() {
-		// TODO Auto-generated method stub
-		return 0;
+		byte res = 1;
+		while(res>0) {
+			res = (byte) ((int)res * 2);
+		}
+		return (byte) (res-1);
 	}
 
 	public static byte getMinByte() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (byte)(getMaxByte() + 1);
 	}
 
 	public static byte getLengthByte() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (byte) getLength(Byte.SIZE);
 	}
 
 	public static char getMaxChar() {
@@ -26,13 +26,12 @@ public class IntegerPrimitives {
 	}
 
 	public static char getMinChar() {
-		
 		return (char)(getMaxChar() + 1);
 	}
 
-	public static char getLengthChar() {
-		// TODO Auto-generated method stub
-		return 0;
+	public static int getLengthChar() {
+		System.out.println(Character.SIZE);
+		return getLength(Character.SIZE);
 	}
 
 	public static short getMaxShort() {
@@ -44,13 +43,27 @@ public class IntegerPrimitives {
 	}
 	
 	public static short getMinShort() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (short)(getMaxShort() + 1);
 	}
 
 	public static short getLengthShort() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (short) getLength(Short.SIZE);
+	}
+	
+	public static int getMaxInt() {
+		int res = 1;
+		while(res > 0) {
+			res *= 2;
+		}
+		return res-1;
+	}
+
+	public static int getMinInt() {
+		return (getMaxInt() + 1);
+	}
+
+	public static int getLengthInt() {
+		return getLength(Integer.SIZE);
 	}
 
 	public static long getMaxLong() {
@@ -62,30 +75,18 @@ public class IntegerPrimitives {
 	}
 
 	public static long getMinLong() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (long)(getMaxLong() + 1);
 	}
 
 	public static long getLengthLong() {
-		// TODO Auto-generated method stub
-		return 0;
+		return getLength(Long.SIZE);
 	}
 
-	public static int getMaxInt() {
-		// TODO Auto-generated method stub
-		return 0;
+	private static int getLength(long x) {
+		int res = 8;
+		while(x != res) {
+			res = res * 2;
+		}
+		return res / 8;
 	}
-
-	public static int getMinInt() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public static int getLengthInt() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	
-	
 }
