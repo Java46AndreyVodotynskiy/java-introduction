@@ -3,7 +3,7 @@ package telran.numbers;
 public class SportLotoAppl {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub/
 
 	}
 	private static int getRandomNumber(int min, int max) {
