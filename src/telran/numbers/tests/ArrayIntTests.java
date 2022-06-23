@@ -28,6 +28,7 @@ class ArrayIntTests {
 		int expected[] = {1,2,-10,20};
 		int ar[] = {1,2,20};
 		assertArrayEquals(expected, ArrayInt.insertNumber(ar, 2, -10));
+		
 	}
 	
 	@Test
