@@ -34,18 +34,27 @@ public class ArrayInt {
 	}
 
 	public static void sort(int[] ar) {
+		int index = 0;
 		for(int i = 0; i < ar.length; i++) {
-			moveMaxToEnd(ar);
+			if(moveMaxToEnd(ar, index) == 0) {
+				break;
+			} else {
+				 moveMaxToEnd(ar, index);
+				 index++;
+			}
 		}
 		
 	}
 
-	private static void moveMaxToEnd(int[] ar) {
-		for(int i = 1; i < ar.length; i++) {
+	private static int moveMaxToEnd(int[] ar, int index) {
+		int count = 0;
+		for(int i = 1; i < ar.length - index; i++) {
 			if(ar[i - 1] > ar[i]) {
 				swap(ar, i);
+				count++;
 			}
 		}
+		return count;
 	}
 
 	private static void swap(int[] ar, int i) {
@@ -67,9 +76,13 @@ public class ArrayInt {
 			}
 			middle = (left + rigth) / 2;
 		}
-		return left > rigth ? - 1: middle;
+		if(ar[middle] == number) {
+			for(int i = 0; i < middle - 1; i++) {
+				if(ar[i] == number) {
+					return i;
+				}
+			}
+		}
+		return left > rigth ? -(left + 1): middle;
 	}
-	
-	
-
 }

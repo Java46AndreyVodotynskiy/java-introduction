@@ -63,15 +63,15 @@ class ArrayIntTests {
 		ArrayInt.sort(ar);
 		runSortTest(ar);
 	}
-	
-//	@Test
-//	void sortLargeTest() {
-//		int ar[] = new int[LARGE_N_NUMBERS];
-//		fillRandomNumbers(ar);
-//		Arrays.sort(ar);
-//		ArrayInt.sort(ar);
-//		runSortTest(ar);
-//	}
+
+	@Test
+	void sortLargeTest() {
+		int ar[] = new int[LARGE_N_NUMBERS];
+		fillRandomNumbers(ar);
+		Arrays.sort(ar);
+		ArrayInt.sort(ar);
+		runSortTest(ar);
+	}
 	
 	@Test
 	void binarySearchTest() {
@@ -81,11 +81,11 @@ class ArrayIntTests {
 		assertEquals(5, ArrayInt.binaryIndexOf(ar, 500));
 		assertTrue( ArrayInt.binaryIndexOf(ar, 150) < 0);
 		//Tests for HW #4
-//		assertEquals(-1, ArrayInt.binaryIndexOf(ar, -10));
-//		assertEquals(-4, ArrayInt.binaryIndexOf(ar, 150));
-//		assertEquals(-7, ArrayInt.binaryIndexOf(ar, 600));
-//		int ar1[] = {1,1,1,1,1};
-//		assertEquals(0, ArrayInt.binaryIndexOf(ar1, 1));
+		assertEquals(-1, ArrayInt.binaryIndexOf(ar, -10));
+		assertEquals(-4, ArrayInt.binaryIndexOf(ar, 150));
+		assertEquals(-7, ArrayInt.binaryIndexOf(ar, 600));
+		int ar1[] = {1,1,1,1,1};
+		assertEquals(0, ArrayInt.binaryIndexOf(ar1, 1));
 	}
 	
 	@Test 
