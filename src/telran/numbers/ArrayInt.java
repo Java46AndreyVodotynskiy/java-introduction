@@ -32,6 +32,43 @@ public class ArrayInt {
 		}
 		return -1;	
 	}
+
+	public static void sort(int[] ar) {
+		for(int i = 0; i < ar.length; i++) {
+			moveMaxToEnd(ar);
+		}
+		
+	}
+
+	private static void moveMaxToEnd(int[] ar) {
+		for(int i = 1; i < ar.length; i++) {
+			if(ar[i - 1] > ar[i]) {
+				swap(ar, i);
+			}
+		}
+	}
+
+	private static void swap(int[] ar, int i) {
+		int tmp = ar[i - 1];
+		ar[i - 1] = ar[i];
+		ar[i] = tmp;
+		
+	}
+
+	public static int binaryIndexOf(int[] ar, int number) {
+		int left = 0;
+		int rigth = ar.length - 1;
+		int middle = ar.length / 2;
+		while(left <= rigth && ar[middle] != number) {
+			if(ar[middle] < number) {
+				left = middle + 1;
+			} else {
+				rigth = middle - 1;
+			}
+			middle = (left + rigth) / 2;
+		}
+		return left > rigth ? - 1: middle;
+	}
 	
 	
 
