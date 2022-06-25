@@ -48,4 +48,6 @@ class ArrayIntTests {
 		assertEquals(0, ArrayInt.indexOf(ar, 1));
 		assertEquals(-1, ArrayInt.indexOf(ar, 10));
 	}
+	
 }
+
