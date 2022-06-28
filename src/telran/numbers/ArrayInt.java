@@ -28,6 +28,5 @@ public class ArrayInt {
 		}
 		return -1;	
 	}
-
 }
 

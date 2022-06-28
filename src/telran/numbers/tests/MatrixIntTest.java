@@ -139,5 +139,4 @@ class MatrixIntTest {
 		};
 		assertArrayEquals(expected, MatrixInt.transposition(matrix));
 	}
-
 }

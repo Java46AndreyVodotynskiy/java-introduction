@@ -5,5 +5,4 @@ public class TictactoeGame {
 		//TODO
 		return - 1;
 	}
-
 }
