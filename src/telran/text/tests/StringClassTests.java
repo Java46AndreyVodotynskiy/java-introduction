@@ -36,5 +36,4 @@ class StringClassTests {
 		assertFalse(Strings.isAnagram(str1, str4));
 		assertTrue(Strings.isAnagram(str1, str1));
 	}
-
 }
