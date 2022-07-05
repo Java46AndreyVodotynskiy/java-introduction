@@ -6,7 +6,12 @@ import java.io.UnsupportedEncodingException;
 
 import org.junit.jupiter.api.Test;
 
+import telran.text.Strings;
+
 class StringsStandartTests {
+
+	private static final int N_RUBS = 10000;
+	private static final int N_STRINGS = 10000;
 
 	@Test
 	void stringArraysTest() throws UnsupportedEncodingException {
@@ -58,6 +63,41 @@ class StringsStandartTests {
 		int b = 10;
 		assertEquals(strExpected, String.format("a=%d", b / 2));
 	}
+	
+	@Test
+	void replaceTest() {
+		String str = "Hello";
+//		str = str.concat(" Vasya");
+//		str.replace("ello", "allo");
+//		assertEquals("Hallo", str);
+		StringBuilder strBuilder = new StringBuilder("Hello");
+		strBuilder.replace(1, 5, "allo");
+		assertEquals("Hallo", strBuilder.toString());
+	}
+	
+	@Test
+	void joinTest() {
+		String array[] = {"Hello", "Vasya"};
+		String expected = "Hello Vasya";
+		assertEquals(expected, Strings.join(array, " "));
+	}
+	
+	@Test
+	void joinPerfomanceTest() {
+		String array[] = getBigArray();
+		for(int i = 0; i < N_RUBS; i++) {
+			Strings.join(array, " ");
+		}
+	}
+
+	private String[] getBigArray() {
+		String res[] = new String[N_STRINGS];
+		for(int i = 0; i < res.length; i++) {
+			res[i] = "Hello";
+		}
+		return res;
+	}
+	
 	
 
 }
