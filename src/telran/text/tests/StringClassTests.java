@@ -55,8 +55,8 @@ class StringClassTests {
 	void sortStringsAsNumbersTest() {
 		String array[] = {"23", "123", "123", "223", "13", "653", "23"};
 		String expected[] = {"13", "23", "23", "123", "123", "223", "653"};
-		assertArrayEquals(expected, Strings.sortStringsAsNumbers(array));
+		Strings.sortStringsAsNumbers(array);
+		assertArrayEquals(expected, array);
 	}
-	
  	
 }
