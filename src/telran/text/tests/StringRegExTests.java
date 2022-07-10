@@ -17,6 +17,7 @@ class StringRegExTests {
 		assertTrue(isJavaVariable("abc100"));
 		assertTrue(isJavaVariable("$2"));
 		assertTrue(isJavaVariable("_2"));
+		assertTrue(isJavaVariable("*2"));
 
 	}
 	@Test
@@ -43,5 +44,25 @@ class StringRegExTests {
 		assertFalse(isIPv4("100.10.1.256"));
 		assertFalse(isIPv4("a.10.1.1"));
 
+	}
+	
+	@Test
+	void arifmeticExpressionTrue() {
+		assertTrue(isArithmeticExpression("10 + ((a) * 2)"));
+		assertTrue(isArithmeticExpression("(10) + ((a))"));
+		assertTrue(isArithmeticExpression("a + ((10) * 2)"));
+		assertTrue(isArithmeticExpression("__a + ((10.15) / 2)"));
+		assertTrue(isArithmeticExpression("__a - ((10.15) / 2)"));
+		assertTrue(isArithmeticExpression("__a - ((10.15) / 2) + 5"));
+		assertTrue(isArithmeticExpression("__a - ((10.15) / 2) + 5 - 5"));
+		assertTrue(isArithmeticExpression("__a - ((1000000.15) / 2) + 5 - 5"));
+		assertTrue(isArithmeticExpression("$ - ((1000000.15) / 2) + 5 - 5"));
+	}
+	
+	@Test
+	void arifmeticExpressionFalse() {
+		assertFalse(isArithmeticExpression("a + ((10)(* 2)"));
+		assertFalse(isArithmeticExpression("*a + (10)+( 2)"));
+		assertFalse(isArithmeticExpression("a + (10)+(* 2)"));
 	}
 }

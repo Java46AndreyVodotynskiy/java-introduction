@@ -1,6 +1,5 @@
 package telran.text;
 
-import java.util.Arrays;
 import static telran.text.RegularExpressions.*;
 
 public class Strings {
@@ -56,7 +55,6 @@ private static final int MAX_NUMBER = 999;
 	
 	private static void sorting(String[] strNumbers, int[] helper) {
 		int indAr = 0;
-	
 		for (int i = 0; i < helper.length; i++) {
 			for(int j = 0; j < helper[i]; j++) {
 				strNumbers[indAr++] = Integer.toString(i);
@@ -86,18 +84,32 @@ private static final int MAX_NUMBER = 999;
 			return false;
 		}
 		expression = removeSpacesAndParentheses(expression);
-	
+		if(!checkArifmeticExpresion(expression)) {
+			return false;
+		};
 		return expression.matches(arithmeticExpression());
 	}
+	
+	private static boolean checkArifmeticExpresion(String expression) {
+		String ArStrSymbols[] = expression.split("");
+		for(int i = 1; i < ArStrSymbols.length; i++) {
+			if(ArStrSymbols[0].matches("[/*+-]")) {
+				return false;
+			}
+			if(ArStrSymbols[i].matches("[/*+-]") && ArStrSymbols[i+1].matches("[/*+-]")) {
+				return false;
+			}
+		}
+		return true;	
+	}
+
 /**
  * 
  * @param expression
  * returns string with no parentheses and no spaces
  */
 	private static String removeSpacesAndParentheses(String expression) {
-		// TODO Auto-generated method stub
-		return "";
-	
+		return expression = expression.replaceAll("[( )]", "");
 	}
 /**
  * 
@@ -107,8 +119,20 @@ private static final int MAX_NUMBER = 999;
  * (ab))((cd) - false
  */
 	private static boolean checkParentheses(String expression) {
-		// TODO Auto-generated method stub
-		//Hint: count with ++ for '(' and -- ')'. 
-		return false;
+		String ArStrSymbols[] = expression.split("");
+		int count = 0;
+		for(int i = 0; i < ArStrSymbols.length; i++) {
+			String oneSymbol = ArStrSymbols[i];
+			if(oneSymbol.compareTo("(") == 0) {
+				count++;
+			}
+			if(oneSymbol.compareTo(")") == 0) {
+				count--;
+			}
+			if(count < 0) {
+				return false;
+			}
+		}
+		return count == 0 ? true : false;
 	}
 }
